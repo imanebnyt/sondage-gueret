@@ -10,7 +10,6 @@ function Sondage() {
       <Header/>
       <div>
         <h1>Sondage Nutrition et Habitudes alimentaires</h1>
-        <h2>Informations personelles</h2>
         <Form/>
       </div>
     </div>

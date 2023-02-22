@@ -9,7 +9,7 @@ function SondageSucces() {
     <div>
       <Header/>
       <div>
-        <h2>Merci de votre compréhension</h2>
+        <h2>Merci de votre participation</h2>
         <img src = {success} alt = "success"/>
         <p>Visualiser les résultats de l'enquête</p>
       </div>

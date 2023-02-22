@@ -13,7 +13,7 @@ router.post('/sondages', (req, res) => {
     const nbFoyer = Number(req.body.nbFoyer);
     const nbEnfants = Number(req.body.nbEnfants);
     const nbAdultes = Number(req.body.nbAdultes);
-    /*const aliments = ADD ALIMENTS*/
+    // ADD ALIMENTS
 
     const sondage = new Sondage({
         nom, 
