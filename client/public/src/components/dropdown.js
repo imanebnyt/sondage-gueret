@@ -3,7 +3,7 @@ import axios from 'axios';
 
 function Dropdown() {
   const [aliments, setAliments] = useState([]);
-  const [selectedAliment, setSelectedAliment] = useState('');
+  const [selectedAliments, setSelectedAliments] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
@@ -14,20 +14,26 @@ function Dropdown() {
   }, []);
 
   const handleSelect = (event) => {
-    setSelectedAliment(event.target.value);
-  }
+    const options = event.target.options;
+    const selectedValues = [];
+    for (let i = 0; i < options.length; i++) {
+      if (options[i].selected) {
+        selectedValues.push(options[i].value);
+      }
+    }
+    setSelectedAliments(selectedValues);
+  };
 
   return (
     <div>
-      <select value={selectedAliment} onChange={handleSelect}>
-        <option value="">Select an aliment</option>
-        {aliments.slice(0, 10).map((aliment) => (
+      <select multiple value={selectedAliments} onChange={handleSelect}>
+        {aliments.map((aliment) => (
           <option key={aliment._id} value={aliment.alim_nom_fr}>
             {aliment.alim_nom_fr}
           </option>
         ))}
       </select>
-      <p>Aliment séléctionné: {selectedAliment}</p>
+      <p>Aliments séléctionnés: {selectedAliments.join(', ')}</p>
     </div>
   );
 }
